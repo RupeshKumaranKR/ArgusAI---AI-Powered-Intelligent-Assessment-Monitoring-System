@@ -264,6 +264,7 @@ function initExamPage() {
     let riskLevel = "LOW";
     let riskEvents = [];
 
+<<<<<<< HEAD
     const RISK_POINTS = {
     FACE_ABSENT: 10,
     MULTIPLE_FACES: 25,
@@ -322,6 +323,8 @@ function initExamPage() {
     "Face not detected for more than 3 seconds"
     );
     
+=======
+>>>>>>> 831323a149d61e92dabdaf143f0657df65d465ec
     let faceAbsentStartTime = null;
     let multipleFaceStartTime = null;
 
@@ -449,6 +452,7 @@ function initExamPage() {
 
                 const absentDuration = (currentTime - faceAbsentStartTime) / 1000;
 
+<<<<<<< HEAD
                if (absentDuration >= 3) {
 
     updateMonitoringStatus(
@@ -464,6 +468,18 @@ function initExamPage() {
     }
     }   
 
+=======
+                if (absentDuration >= 3) {
+                    if (!faceAbsentReported) {
+                        addRiskPoints(10, "Face not detected for more than 3 seconds");
+                        faceAbsentReported = true;
+                    }
+                    updateMonitoringStatus(
+                        "FACE_ABSENT",
+                        "⚠️ Face not detected. Please remain visible to the camera."
+                    );
+                }
+>>>>>>> 831323a149d61e92dabdaf143f0657df65d465ec
             } else if (faceCount === 1) {
                 // ── Exactly one face — normal ──
                 faceAbsentStartTime = null;
@@ -666,4 +682,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (isExamPage()) {
         initExamPage();
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 831323a149d61e92dabdaf143f0657df65d465ec
